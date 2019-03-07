@@ -1,34 +1,18 @@
+<p align="center">
+  <img src="./public/img/vue-cobra-logo.png" width="200">
+</p>
+
 # vue-cobra
 
-## Project setup
+## Install
 ```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
+npm install vue-cobra --save
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## Acknowledgement
 
-### Run your tests
-```
-npm run test
-```
+[Diogo Moretti](https://github.com/diogomoretti) - [React Snakke](https://diogomoretti.github.io/react-snakke/)
 
-### Lints and fixes files
-```
-npm run lint
-```
+## License
 
-### Run your unit tests
-```
-npm run test:unit
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+MIT © [Firmino Changani](https://github.com/flowck)
