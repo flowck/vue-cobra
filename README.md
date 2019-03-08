@@ -51,6 +51,7 @@ export default {
 
 <script>
 import vueCobra from "vue-cobra";
+
 export default {
   name: "Demo",
   components: {
@@ -62,7 +63,7 @@ export default {
 
 #### Register it globally
 
-```
+```js
 import Vue from "vue";
 import vueCobra from "vue-cobra";
 
