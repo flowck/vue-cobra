@@ -1,10 +1,10 @@
 {
   "name": "vue-cobra",
-  "version": "0.1.0",
-  "private": true,
+  "version": "1.0.3",
+  "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build --target wc --name vue-cobra ./src/components/vueCobra.vue",
+    "build": "vue-cli-service build --target lib --name vue-cobra ./src/components/index.js",
     "build:web": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit"
@@ -27,5 +27,10 @@
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
     "vue-template-compiler": "^2.5.21"
-  }
+  },
+  "author": "flowck",
+  "repository": "flowck/vue-cobra",
+  "main": "dist/vue-cobra.js",
+  "module": "dist/vue-cobra.js",
+  "license": "MIT"
 }
