@@ -1,6 +1,6 @@
 <template>
   <div class="vue-cobra__demo">
-    <vue-cobra />
+    <vue-cobra color="#4fc08d" />
     <header class="header">
       <img
         class="vue-cobra__logo"
