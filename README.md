@@ -17,7 +17,7 @@ yarn add install vue-cobra
 ## Usage
 #### Default
 
-```
+```html
 <template>
   <div>
     <vue-cobra />
@@ -37,7 +37,7 @@ export default {
 
 #### With custom values
 
-```
+```html
 <template>
   <div>
     <vue-cobra
