@@ -49,7 +49,10 @@ export default {
       height: this.height + "px",
       "background-color": this.color,
       opacity: this.opacity,
-      "z-index": this.zIndex
+      "z-index": this.zIndex,
+      top: 0,
+      left: 0,
+      position: "fixed"
     };
   },
   mounted() {

@@ -1,6 +1,6 @@
 {
   "name": "vue-cobra",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -30,7 +30,7 @@
   },
   "author": "flowck",
   "repository": "flowck/vue-cobra",
-  "main": "dist/vue-cobra.js",
-  "module": "dist/vue-cobra.js",
+  "main": "dist/vue-cobra.common.js",
+  "module": "dist/vue-cobra.umd.js",
   "license": "MIT"
 }
