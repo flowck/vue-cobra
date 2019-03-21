@@ -1,5 +1,5 @@
 <template>
-  <div class="vue-cobra" :style="{ ...styles, width: this.getProgress }"></div>
+  <div class="vue-cobra" :style="{ ...styles, width: getProgress }"></div>
 </template>
 
 <script>
@@ -31,22 +31,23 @@ export default {
   },
   computed: {
     getProgress() {
-      return this.progress + "%";
+      return `${this.progress}%`;
     }
   },
   methods: {
-    GetPercentageScroll(scrollPosition) {
+    GetPercentageScroll() {
+      const scrollPosition = window.scrollY;
       const bodyHeight =
         document.body.clientHeight - document.documentElement.clientHeight;
       return Math.floor((scrollPosition / bodyHeight) * 100);
     },
     SetProgress() {
-      this.progress = this.GetPercentageScroll(window.scrollY);
+      this.progress = this.GetPercentageScroll();
     }
   },
   created() {
     this.styles = {
-      height: this.height + "px",
+      height: `${this.height}px`,
       "background-color": this.color,
       opacity: this.opacity,
       "z-index": this.zIndex,
