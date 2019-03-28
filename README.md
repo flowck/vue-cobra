@@ -79,6 +79,10 @@ Vue.component("vue-cobra", vueCobra);
 | opacity | String | 1             | false    | Set opacity from 0 to 1           |
 | zIndex  | String | 1000          | false    | Set value based on css z-index property    |
 
+## Contributors
+
+[Pedro Henrique Silva Fontes](https://github.com/phfontess)
+
 ## Acknowledgement
 
 [Diogo Moretti](https://github.com/diogomoretti) - [React Snakke](https://diogomoretti.github.io/react-snakke/)
