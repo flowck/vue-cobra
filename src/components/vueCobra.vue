@@ -1,5 +1,5 @@
 <template>
-  <div class="vue-cobra" :style="{ ...styles, width: getProgress }"></div>
+  <div class="vue-cobra" :style="{ ...styles, transform: getProgressTransform }"></div>
 </template>
 
 <script>
@@ -8,6 +8,7 @@ export default {
   data() {
     return {
       progress: 0,
+      ticking: false,
       styles: {}
     };
   },
@@ -30,19 +31,26 @@ export default {
     }
   },
   computed: {
-    getProgress() {
-      return `${this.progress}%`;
+    getProgressTransform() {
+      return `scaleX(${this.progress / 100})`;
     }
   },
   methods: {
     GetPercentageScroll() {
-      const scrollPosition = window.scrollY;
+      const scrollPosition = window.pageYOffset;
       const bodyHeight =
         document.body.clientHeight - document.documentElement.clientHeight;
       return Math.floor((scrollPosition / bodyHeight) * 100);
     },
     SetProgress() {
-      this.progress = this.GetPercentageScroll();
+      if (this.ticking === false) {
+        window.requestAnimationFrame(() => {
+          this.progress = this.GetPercentageScroll();
+          this.ticking = false;
+        });
+
+        this.ticking = true;
+      }
     }
   },
   created() {
@@ -56,10 +64,11 @@ export default {
       position: "fixed"
     };
   },
+  beforeDestroy() {
+    window.removeEventListener("scroll", this.SetProgress);
+  },
   mounted() {
-    window.addEventListener("scroll", () => {
-      this.SetProgress();
-    });
+    window.addEventListener("scroll", this.SetProgress);
   }
 };
 </script>
@@ -71,5 +80,5 @@ export default {
   width 100%
   height 4px
   position fixed
-  background-color #4fc08d
+  transform-origin left
 </style>
