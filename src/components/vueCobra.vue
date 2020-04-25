@@ -1,5 +1,12 @@
-<template>
-  <div class="vue-cobra" :style="{ ...styles, transform: getProgressTransform }"></div>
+eal<template>
+  <div
+    class="vue-cobra"
+    :style="{
+      ...styles,
+      transform: getProgressTransform,
+      ...this.getStylesOnCustomPosition
+    }"
+  />
 </template>
 
 <script>
@@ -28,24 +35,53 @@ export default {
     zIndex: {
       type: Number,
       default: 1000
+    },
+    position: {
+      type: String,
+      default: "top",
+      validator(value) {
+        return ["left", "bottom", "top"].indexOf(value) !== -1;
+      }
     }
   },
   computed: {
     getProgressTransform() {
-      return `scaleX(${this.progress / 100})`;
+      if (this.position === "left" || this.position === "right") {
+        return `scaleY(${this.progress / 100})`;
+      } else {
+        return `scaleX(${this.progress / 100})`;
+      }
+    },
+    getStylesOnCustomPosition() {
+      switch (this.position) {
+        case "left":
+          return {
+            height: "100%",
+            width: `${this.height}px`,
+            "transform-origin": "top",
+            left: 0
+          };
+        case "bottom":
+          return {
+            top: "initial",
+            bottom: 0
+          };
+        default:
+          return {};
+      }
     }
   },
   methods: {
-    GetPercentageScroll() {
+    getPercentageScroll() {
       const scrollPosition = window.pageYOffset;
       const bodyHeight =
         document.body.clientHeight - document.documentElement.clientHeight;
       return Math.floor((scrollPosition / bodyHeight) * 100);
     },
-    SetProgress() {
+    setProgress() {
       if (this.ticking === false) {
         window.requestAnimationFrame(() => {
-          this.progress = this.GetPercentageScroll();
+          this.progress = this.getPercentageScroll();
           this.ticking = false;
         });
 
@@ -65,10 +101,10 @@ export default {
     };
   },
   beforeDestroy() {
-    window.removeEventListener("scroll", this.SetProgress);
+    window.removeEventListener("scroll", this.setProgress);
   },
   mounted() {
-    window.addEventListener("scroll", this.SetProgress);
+    window.addEventListener("scroll", this.setProgress);
   }
 };
 </script>
