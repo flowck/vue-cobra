@@ -1,9 +1,10 @@
-<template>
+eal<template>
   <div
     class="vue-cobra"
     :style="{
       ...styles,
-      transform: getProgressTransform
+      transform: getProgressTransform,
+      ...this.getStylesOnCustomPosition
     }"
   />
 </template>
@@ -34,11 +35,40 @@ export default {
     zIndex: {
       type: Number,
       default: 1000
+    },
+    position: {
+      type: String,
+      default: "top",
+      validator(value) {
+        return ["left", "bottom", "top"].indexOf(value) !== -1;
+      }
     }
   },
   computed: {
     getProgressTransform() {
-      return `scaleX(${this.progress / 100})`;
+      if (this.position === "left" || this.position === "right") {
+        return `scaleY(${this.progress / 100})`;
+      } else {
+        return `scaleX(${this.progress / 100})`;
+      }
+    },
+    getStylesOnCustomPosition() {
+      switch (this.position) {
+        case "left":
+          return {
+            height: "100%",
+            width: `${this.height}px`,
+            "transform-origin": "top",
+            left: 0
+          };
+        case "bottom":
+          return {
+            top: "initial",
+            bottom: 0
+          };
+        default:
+          return {};
+      }
     }
   },
   methods: {
