@@ -1,5 +1,11 @@
 <template>
-  <div class="vue-cobra" :style="{ ...styles, transform: getProgressTransform }"></div>
+  <div
+    class="vue-cobra"
+    :style="{
+      ...styles,
+      transform: getProgressTransform
+    }"
+  />
 </template>
 
 <script>
