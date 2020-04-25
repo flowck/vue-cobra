@@ -36,16 +36,16 @@ export default {
     }
   },
   methods: {
-    GetPercentageScroll() {
+    getPercentageScroll() {
       const scrollPosition = window.pageYOffset;
       const bodyHeight =
         document.body.clientHeight - document.documentElement.clientHeight;
       return Math.floor((scrollPosition / bodyHeight) * 100);
     },
-    SetProgress() {
+    setProgress() {
       if (this.ticking === false) {
         window.requestAnimationFrame(() => {
-          this.progress = this.GetPercentageScroll();
+          this.progress = this.getPercentageScroll();
           this.ticking = false;
         });
 
@@ -65,10 +65,10 @@ export default {
     };
   },
   beforeDestroy() {
-    window.removeEventListener("scroll", this.SetProgress);
+    window.removeEventListener("scroll", this.setProgress);
   },
   mounted() {
-    window.addEventListener("scroll", this.SetProgress);
+    window.addEventListener("scroll", this.setProgress);
   }
 };
 </script>
