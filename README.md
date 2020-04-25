@@ -35,7 +35,7 @@ export default {
 </script>
 ```
 
-#### With custom values
+#### With custom properties
 
 ```html
 <template>
@@ -45,6 +45,7 @@ export default {
       :zIndex="900"
       color="#4fc08d"
       :opacity="0.5"
+      position="left"
     />
   </div>
 </template>
@@ -75,9 +76,12 @@ Vue.component("vue-cobra", vueCobra);
 | Prop    | Type   | Default value | Required | Description                       |
 |---------|--------|---------------|----------|-----------------------------------|
 | color   | String | #000          | false    | Set progress bar background color |
-| height  | String | 4px           | false    | Set height of progress bar        |
-| opacity | String | 1             | false    | Set opacity from 0 to 1           |
+| height  | Number | 4           | false    | Set height of progress bar        |
+| opacity | Number | 1             | false    | Set opacity from 0 to 1           |
+| position | String | top          | false    | Define in which position the bar will be rendered. Accepts: `top`, `bottom` and `left`           |
 | zIndex  | String | 1000          | false    | Set value based on css z-index property    |
+
+When `position` property is set, `height` value is used to define the tickness of the bar. This was a quick approach to ensure backward compatibility. Feel free to send a PR.
 
 ## Contributors
 
