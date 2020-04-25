@@ -3,6 +3,7 @@
   "version": "1.0.6",
   "private": false,
   "scripts": {
+    "start": "npm run serve",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --target lib --name vue-cobra ./src/components/index.js",
     "build:web": "vue-cli-service build",
