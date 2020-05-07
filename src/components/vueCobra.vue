@@ -1,4 +1,4 @@
-eal<template>
+<template>
   <div
     class="vue-cobra"
     :style="{
