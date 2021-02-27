@@ -1,20 +1,27 @@
-<p align="center">
-  <img src="./public/img/vue-cobra-logo.png" width="200">
-</p>
-
 # vue-cobra
 
+A Vuejs component that indicates the position of the scroll as the user reads the page.
+
+<p align="center">
+  <img src="./public/img/vue-cobra-logo.png" width="100">
+</p>
+
 ## Install
+
 #### npm
+
 ```
 npm install vue-cobra --save
 ```
+
 #### yarn
+
 ```
 yarn add install vue-cobra
 ```
 
 ## Usage
+
 #### Default
 
 ```html
@@ -25,13 +32,13 @@ yarn add install vue-cobra
 </template>
 
 <script>
-import vueCobra from "vue-cobra";
-export default {
-  name: "Demo",
-  components: {
-    vueCobra
-  }
-}
+  import vueCobra from "vue-cobra";
+  export default {
+    name: "Demo",
+    components: {
+      vueCobra,
+    },
+  };
 </script>
 ```
 
@@ -51,14 +58,14 @@ export default {
 </template>
 
 <script>
-import vueCobra from "vue-cobra";
+  import vueCobra from "vue-cobra";
 
-export default {
-  name: "Demo",
-  components: {
-    vueCobra
-  }
-}
+  export default {
+    name: "Demo",
+    components: {
+      vueCobra,
+    },
+  };
 </script>
 ```
 
@@ -73,19 +80,20 @@ Vue.component("vue-cobra", vueCobra);
 
 ## Options / Props
 
-| Prop    | Type   | Default value | Required | Description                       |
-|---------|--------|---------------|----------|-----------------------------------|
-| color   | String | #000          | false    | Set progress bar background color |
-| height  | Number | 4           | false    | Set height of progress bar        |
-| opacity | Number | 1             | false    | Set opacity from 0 to 1           |
-| position | String | top          | false    | Define in which position the bar will be rendered. Accepts: `top`, `bottom` and `left`           |
-| zIndex  | String | 1000          | false    | Set value based on css z-index property    |
+| Prop     | Type   | Default value | Required | Description                                                                            |
+| -------- | ------ | ------------- | -------- | -------------------------------------------------------------------------------------- |
+| color    | String | #000          | false    | Set progress bar background color                                                      |
+| height   | Number | 4             | false    | Set height of progress bar                                                             |
+| opacity  | Number | 1             | false    | Set opacity from 0 to 1                                                                |
+| position | String | top           | false    | Define in which position the bar will be rendered. Accepts: `top`, `bottom` and `left` |
+| zIndex   | String | 1000          | false    | Set value based on css z-index property                                                |
 
 When `position` property is set, `height` value is used to define the tickness of the bar. This was a quick approach to ensure backward compatibility. Feel free to send a PR.
 
 ## Contributors
 
-[Pedro Henrique Silva Fontes](https://github.com/phfontess)
+[@phfontess](https://github.com/phfontess)
+[@fvonellerts](https://github.com/fvonellerts)
 
 ## Acknowledgement
 
